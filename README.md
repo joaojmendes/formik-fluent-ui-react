@@ -68,8 +68,8 @@ const NewAndAlsoPretty = () => (
 ###
 
 ```
-git clone https://github.com/kmees/formik-office-ui-fabric-react
-cd formik-office-ui-fabric-react && yarn install
+git clone https://github.com/joaojmendes/formik-fluent-ui-react
+cd formik-fluent-ui-react && npm install | yarn install
 ```
 
 ### Running development server
