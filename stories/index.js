@@ -16,7 +16,7 @@ import { FormikToggleStory } from './FormikToggle.story'
 
 initializeIcons()
 
-storiesOf('formik-fluentui-react', module)
+storiesOf('formik-fluent-ui-react', module)
   .add('FormikCheckbox', FormikCheckboxStory)
   .add('FormikChoiceGroup', FormikChoiceGroupStory)
   .add('FormikColorPicker', FormikColorPickerStory)

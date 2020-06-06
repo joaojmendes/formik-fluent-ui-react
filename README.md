@@ -1,6 +1,6 @@
 
 
-# formik-fluentui-react
+# formik-fluent-ui-react
 
 > 💉 Instant pain reliever for using Formik with Fluent-UI React 💉
 
@@ -23,7 +23,7 @@ npm install --save formik-fluent-ui-react
 ```tsx
 import { Formik, Form, Field } from 'formik'
 import { DatePicker } from 'office-ui-fabric-react'
-import { FormikDatePicker, mapFieldToDatePicker } from 'formik-office-ui-fabric-react'
+import { FormikDatePicker, mapFieldToDatePicker } from 'formik-fluent-ui-react'
 
 const OldAndUgly = () => (
   <Formik initialValues={{ date: new Date() }}>
