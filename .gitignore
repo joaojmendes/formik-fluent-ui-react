@@ -1,0 +1,17 @@
+# packages
+node_modules
+yarn-error.log
+
+# build & test
+lib
+dist
+docs
+junit.xml
+.rpt2_cache
+
+# secrets
+.coveralls.yml
+
+# os x
+.DS_Store
+

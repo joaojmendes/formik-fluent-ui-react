@@ -1,0 +1,55 @@
+# Node.js
+# Build a general Node.js project with npm.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+pool:
+  vmImage: 'Ubuntu 16.04'
+
+steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '8.x'
+    displayName: 'Install Node.js'
+
+  - script: |
+      yarn install
+    displayName: 'yarn install'
+
+  - script: |
+      yarn prettier:list
+      yarn tslint
+      yarn test --ci --reporters=jest-junit
+    displayName: 'lint and test'
+
+  - script: |
+      yarn coverage
+    displayName: 'coverage'
+
+  - script: |
+      yarn package
+    displayName: 'package'
+
+  - script: |
+      yarn docs
+    displayName: 'docs'
+
+  - task: PublishTestResults@2
+    inputs:
+      testRunner: JUnit
+      testResultsFiles: ./junit.xml
+
+  - task: CopyFiles@2
+    inputs:
+      SourceFolder: '$(System.DefaultWorkingDirectory)'
+      Contents: |
+        lib/**
+        dist/**
+        docs/**
+        package.json
+        CHANGELOG.md
+        README.md
+        LICENSE
+      TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+  - task: PublishBuildArtifacts@1
