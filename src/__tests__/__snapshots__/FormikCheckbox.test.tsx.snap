@@ -2,41 +2,45 @@
 
 exports[`<FormikCheckbox /> renders correctly as a field component 1`] = `
 <form
+  action="#"
   onReset={[Function]}
   onSubmit={[Function]}
 >
-  <button
-    aria-checked={true}
-    checked={true}
-    className="ms-Checkbox is-checked is-enabled root-47"
-    id="checkbox-1"
-    name="isChecked"
-    onBlur={[Function]}
-    onClick={[Function]}
-    onFocus={[Function]}
-    role="checkbox"
-    type="button"
+  <div
+    className="ms-Checkbox is-enabled root-53"
   >
+    <input
+      aria-checked="false"
+      aria-label="Checkbox"
+      checked={false}
+      className="input-54"
+      data-ktp-execute-target={true}
+      id="checkbox-0"
+      name="isChecked"
+      onChange={[Function]}
+      type="checkbox"
+    />
     <label
-      className="ms-Checkbox-label label-48"
-      htmlFor="checkbox-1"
+      className="ms-Checkbox-label label-55"
+      htmlFor="checkbox-0"
     >
       <div
-        className="ms-Checkbox-checkbox checkbox-49"
+        className="ms-Checkbox-checkbox checkbox-56"
+        data-ktp-target={true}
       >
         <i
           aria-hidden={true}
-          className="ms-Checkbox-checkmark checkmark-52"
+          className="ms-Checkbox-checkmark checkmark-59"
           data-icon-name="CheckMark"
-          role="presentation"
         />
       </div>
       <span
-        className="ms-Checkbox-text text-51"
+        aria-hidden="true"
+        className="ms-Checkbox-text text-58"
       >
         Checkbox
       </span>
     </label>
-  </button>
+  </div>
 </form>
 `;

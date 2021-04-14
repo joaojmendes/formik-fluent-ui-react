@@ -1,15 +1,15 @@
 import { Field, FieldProps, Form, Formik } from 'formik'
-import { ChoiceGroup } from 'office-ui-fabric-react'
+import { ChoiceGroup } from '@fluentui/react'
 import * as React from 'react'
 import renderer from 'react-test-renderer'
 import { FormikChoiceGroup, mapFieldToChoiceGroup } from '../FormikChoiceGroup'
 import { noop, serialize } from './utils'
 
 class Values {
-  public selection: string | null = null
+  public selection: string | number = 5
 }
 
-function createFieldProps(value: string | null = null): FieldProps<Values> {
+function createFieldProps(value: string | number = 6): FieldProps<string | number> {
   return {
     field: {
       value,
@@ -56,8 +56,8 @@ test('<FormikChoiceGroup /> renders a Fabric <ChoiceGroup />', () => {
 })
 
 test('mapFieldToChoiceGroup() maps FieldProps to IChoiceGroupProps', () => {
-  const { field, form } = createFieldProps()
-  const props = mapFieldToChoiceGroup({ form, field })
+  const { field, form, meta } = createFieldProps()
+  const props = mapFieldToChoiceGroup({ form, field, meta })
 
   expect(props.selectedKey).toBe(field.value)
 

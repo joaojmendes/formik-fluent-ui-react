@@ -1,5 +1,5 @@
 import { Field, FieldProps, Form, Formik } from 'formik'
-import { Rating, setIconOptions } from 'office-ui-fabric-react'
+import { Rating, setIconOptions } from '@fluentui/react'
 import * as React from 'react'
 import renderer from 'react-test-renderer'
 import { FormikRating, mapFieldToRating } from '../FormikRating'
@@ -14,7 +14,7 @@ class Values {
   public rating: number = 3
 }
 
-function createFieldProps(value: number = 3): FieldProps<Values> {
+function createFieldProps(value: number = 3): FieldProps<number> {
   return {
     field: {
       value,
@@ -23,6 +23,7 @@ function createFieldProps(value: number = 3): FieldProps<Values> {
       name: 'rating',
     },
     form: { setFieldValue: jest.fn(), handleBlur: jest.fn(() => jest.fn()) },
+    meta: {}
   } as any
 }
 
@@ -39,21 +40,20 @@ test('<FormikRating /> renders correctly as a field component', () => {
 })
 
 test('<FormikRating /> renders a Fabric <Rating />', () => {
-  const label = 'Rating'
   const fieldProps = createFieldProps()
 
   const formikRating = renderer.create(<FormikRating {...fieldProps} />)
   const fabricRating = renderer.create(
-    <Rating {...mapFieldToRating(fieldProps)} label={label} />
+    <Rating {...mapFieldToRating(fieldProps)} />
   )
   expect(serialize(formikRating)).toBe(serialize(fabricRating))
 })
 
 test('mapFieldToRating() maps FieldProps to IRatingProps', () => {
-  const { field, form } = createFieldProps()
-  const props = mapFieldToRating({ form, field })
+  const { field, form, meta } = createFieldProps()
+  const props = mapFieldToRating({ form, field, meta })
 
-  expect(props.value).toBe(field.value)
+  expect(props.rating).toBe(field.value)
 
   props.onChange!(null as any, 5)
 

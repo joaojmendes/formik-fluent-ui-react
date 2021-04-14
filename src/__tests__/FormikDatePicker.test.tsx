@@ -1,5 +1,5 @@
 import { Field, FieldProps, Form, Formik } from 'formik'
-import { DatePicker, setIconOptions } from 'office-ui-fabric-react'
+import { DatePicker, setIconOptions } from '@fluentui/react'
 import * as React from 'react'
 import renderer from 'react-test-renderer'
 import { FormikDatePicker, mapFieldToDatePicker } from '../FormikDatePicker'
@@ -16,7 +16,7 @@ class Values {
   public date: Date = testDate
 }
 
-function createFieldProps(value = testDate): FieldProps<Values> {
+function createFieldProps(value = testDate): FieldProps<Date> {
   return {
     field: {
       value,
@@ -30,7 +30,7 @@ function createFieldProps(value = testDate): FieldProps<Values> {
 
 test('<FormikDatePicker /> renders correctly as a field component', () => {
   const component = renderer.create(
-    <Formik initialValues={{ test: testDate }} onSubmit={noop}>
+    <Formik initialValues={new Values()} onSubmit={noop}>
       <Form>
         <Field name="date" label="Date" component={FormikDatePicker} />
       </Form>
@@ -53,8 +53,8 @@ test('<FormikDatePicker /> renders a Fabric <DatePicker />', () => {
 })
 
 test('mapFieldToDatePicker() maps FieldProps to IDatePickerProps', () => {
-  const { field, form } = createFieldProps()
-  const props = mapFieldToDatePicker({ form, field })
+  const { field, form, meta } = createFieldProps()
+  const props = mapFieldToDatePicker({ form, field, meta })
 
   expect(props.value).toBe(field.value)
 

@@ -6,22 +6,19 @@ import { FieldProps } from 'formik'
 import * as React from 'react'
 import { createFakeEvent, Omit } from './utils'
 
-export function mapFieldToSwatchColorPicker<T = any>({
+export function mapFieldToSwatchColorPicker<V extends string | object, FormValues = any>({
   form,
   field,
-}: FieldProps<T>): Pick<
+}: FieldProps<V, FormValues>): Pick<
   ISwatchColorPickerProps,
   'selectedId' | 'onColorChanged'
 > {
-  const valueType = typeof field.value
+  const value = field.value;
+  const valueType = typeof value;
+  let selectedId = valueType === "string" ? (value as string) : valueType === "object" ? (value as {id?:string})?.id : undefined;
 
   return {
-    selectedId:
-      valueType === 'string'
-        ? field.value
-        : field.value
-        ? field.value.id
-        : null,
+    selectedId,
     onColorChanged: (id, color) => {
       form.setFieldValue(
         field.name,
@@ -31,23 +28,25 @@ export function mapFieldToSwatchColorPicker<T = any>({
     },
   }
 }
-export type FormikSwatchColorPickerProps<T = any> = Omit<
+export type FormikSwatchColorPickerProps<V extends string | object, FormValues = any> = Omit<
   ISwatchColorPickerProps,
   'selectedId' | 'onColorChanged'
 > &
-  FieldProps<T>
+  FieldProps<V, FormValues>
 
-export function FormikSwatchColorPicker<T = any>({
+export function FormikSwatchColorPicker<V extends string | object, FormValues = any>({
   field,
   form,
+  meta,
   ...props
-}: FormikSwatchColorPickerProps<T>) {
+}: FormikSwatchColorPickerProps<V, FormValues>) {
   return (
     <SwatchColorPicker
       {...props}
       {...mapFieldToSwatchColorPicker({
         field,
         form,
+        meta
       })}
     />
   )

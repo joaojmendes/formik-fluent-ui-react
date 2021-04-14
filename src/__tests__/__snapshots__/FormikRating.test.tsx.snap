@@ -2,54 +2,51 @@
 
 exports[`<FormikRating /> renders correctly as a field component 1`] = `
 <form
+  action="#"
   onReset={[Function]}
   onSubmit={[Function]}
 >
   <div
-    aria-label=""
-    className="ms-Rating-star ms-RatingStar-root root-47 ms-RatingStar-root--small rootIsSmall-48"
-    id="Rating1"
+    className="ms-Rating-star ms-RatingStar-root root-53 ms-RatingStar-root--small rootIsSmall-54"
+    id="Rating0"
+    onChange={[Function]}
+    role="radiogroup"
   >
     <div
-      className="ms-FocusZone ms-Rating-focuszone ratingFocusZone-57 ms-RatingStar-root--small rootIsSmall-48"
-      data-focuszone-id="FocusZone3"
-      data-is-focusable={false}
+      className="ms-FocusZone css-64 ms-Rating-focuszone ratingFocusZone-63 ms-RatingStar-root--small rootIsSmall-54"
+      data-focuszone-id="FocusZone2"
       onFocus={[Function]}
       onKeyDown={[Function]}
       onMouseDownCapture={[Function]}
-      role="presentation"
-      tabIndex={-1}
     >
       <button
-        className="ms-Rating-button ratingButton-53 ms-Rating--small ratingStarIsSmall-54"
-        data-is-current={true}
+        aria-checked={false}
+        className="ms-Rating-button ratingButton-59 ms-Rating--small ratingStarIsSmall-60"
         disabled={false}
-        id="Rating1-star-0"
+        id="Rating0-star-0"
         onClick={[Function]}
         onFocus={[Function]}
-        role="presentation"
+        role="radio"
         type="button"
       >
         <span
-          className="ms-Rating-labelText labelText-56"
-          id="RatingLabel2-1"
+          className="ms-Rating-labelText labelText-62"
+          id="RatingLabel1-1"
         >
           
         </span>
         <div
-          className="ms-RatingStar-container ratingStar-50"
+          className="ms-RatingStar-container ratingStar-56"
         >
           <i
             aria-hidden={true}
-            className="ms-RatingStar-back ratingStarBack-58"
+            className="ms-RatingStar-back ratingStarBack-65"
             data-icon-name="FavoriteStarFill"
-            role="presentation"
           />
           <i
             aria-hidden={true}
-            className="ms-RatingStar-front ratingStarFront-59"
+            className="ms-RatingStar-front ratingStarFront-66"
             data-icon-name="FavoriteStarFill"
-            role="presentation"
             style={
               Object {
                 "width": "100%",
@@ -59,34 +56,106 @@ exports[`<FormikRating /> renders correctly as a field component 1`] = `
         </div>
       </button>
       <button
-        className="ms-Rating-button ratingButton-53 ms-Rating--small ratingStarIsSmall-54"
+        aria-checked={false}
+        className="ms-Rating-button ratingButton-59 ms-Rating--small ratingStarIsSmall-60"
         disabled={false}
-        id="Rating1-star-1"
+        id="Rating0-star-1"
         onClick={[Function]}
         onFocus={[Function]}
-        role="presentation"
+        role="radio"
         type="button"
       >
         <span
-          className="ms-Rating-labelText labelText-56"
-          id="RatingLabel2-2"
+          className="ms-Rating-labelText labelText-62"
+          id="RatingLabel1-2"
         >
           
         </span>
         <div
-          className="ms-RatingStar-container ratingStar-50"
+          className="ms-RatingStar-container ratingStar-56"
         >
           <i
             aria-hidden={true}
-            className="ms-RatingStar-back ratingStarBack-58"
+            className="ms-RatingStar-back ratingStarBack-65"
             data-icon-name="FavoriteStarFill"
-            role="presentation"
           />
           <i
             aria-hidden={true}
-            className="ms-RatingStar-front ratingStarFront-59"
+            className="ms-RatingStar-front ratingStarFront-66"
             data-icon-name="FavoriteStarFill"
-            role="presentation"
+            style={
+              Object {
+                "width": "100%",
+              }
+            }
+          />
+        </div>
+      </button>
+      <button
+        aria-checked={true}
+        className="ms-Rating-button ratingButton-59 ms-Rating--small ratingStarIsSmall-60"
+        data-is-current={true}
+        disabled={false}
+        id="Rating0-star-2"
+        onClick={[Function]}
+        onFocus={[Function]}
+        role="radio"
+        type="button"
+      >
+        <span
+          className="ms-Rating-labelText labelText-62"
+          id="RatingLabel1-3"
+        >
+          
+        </span>
+        <div
+          className="ms-RatingStar-container ratingStar-56"
+        >
+          <i
+            aria-hidden={true}
+            className="ms-RatingStar-back ratingStarBack-65"
+            data-icon-name="FavoriteStarFill"
+          />
+          <i
+            aria-hidden={true}
+            className="ms-RatingStar-front ratingStarFront-66"
+            data-icon-name="FavoriteStarFill"
+            style={
+              Object {
+                "width": "100%",
+              }
+            }
+          />
+        </div>
+      </button>
+      <button
+        aria-checked={false}
+        className="ms-Rating-button ratingButton-59 ms-Rating--small ratingStarIsSmall-60"
+        disabled={false}
+        id="Rating0-star-3"
+        onClick={[Function]}
+        onFocus={[Function]}
+        role="radio"
+        type="button"
+      >
+        <span
+          className="ms-Rating-labelText labelText-62"
+          id="RatingLabel1-4"
+        >
+          
+        </span>
+        <div
+          className="ms-RatingStar-container ratingStar-56"
+        >
+          <i
+            aria-hidden={true}
+            className="ms-RatingStar-back ratingStarBack-65"
+            data-icon-name="FavoriteStar"
+          />
+          <i
+            aria-hidden={true}
+            className="ms-RatingStar-front ratingStarFront-66"
+            data-icon-name="FavoriteStar"
             style={
               Object {
                 "width": "0%",
@@ -96,108 +165,33 @@ exports[`<FormikRating /> renders correctly as a field component 1`] = `
         </div>
       </button>
       <button
-        className="ms-Rating-button ratingButton-53 ms-Rating--small ratingStarIsSmall-54"
+        aria-checked={false}
+        className="ms-Rating-button ratingButton-59 ms-Rating--small ratingStarIsSmall-60"
         disabled={false}
-        id="Rating1-star-2"
+        id="Rating0-star-4"
         onClick={[Function]}
         onFocus={[Function]}
-        role="presentation"
+        role="radio"
         type="button"
       >
         <span
-          className="ms-Rating-labelText labelText-56"
-          id="RatingLabel2-3"
+          className="ms-Rating-labelText labelText-62"
+          id="RatingLabel1-5"
         >
           
         </span>
         <div
-          className="ms-RatingStar-container ratingStar-50"
+          className="ms-RatingStar-container ratingStar-56"
         >
           <i
             aria-hidden={true}
-            className="ms-RatingStar-back ratingStarBack-58"
-            data-icon-name="FavoriteStarFill"
-            role="presentation"
+            className="ms-RatingStar-back ratingStarBack-65"
+            data-icon-name="FavoriteStar"
           />
           <i
             aria-hidden={true}
-            className="ms-RatingStar-front ratingStarFront-59"
-            data-icon-name="FavoriteStarFill"
-            role="presentation"
-            style={
-              Object {
-                "width": "0%",
-              }
-            }
-          />
-        </div>
-      </button>
-      <button
-        className="ms-Rating-button ratingButton-53 ms-Rating--small ratingStarIsSmall-54"
-        disabled={false}
-        id="Rating1-star-3"
-        onClick={[Function]}
-        onFocus={[Function]}
-        role="presentation"
-        type="button"
-      >
-        <span
-          className="ms-Rating-labelText labelText-56"
-          id="RatingLabel2-4"
-        >
-          
-        </span>
-        <div
-          className="ms-RatingStar-container ratingStar-50"
-        >
-          <i
-            aria-hidden={true}
-            className="ms-RatingStar-back ratingStarBack-58"
-            data-icon-name="FavoriteStarFill"
-            role="presentation"
-          />
-          <i
-            aria-hidden={true}
-            className="ms-RatingStar-front ratingStarFront-59"
-            data-icon-name="FavoriteStarFill"
-            role="presentation"
-            style={
-              Object {
-                "width": "0%",
-              }
-            }
-          />
-        </div>
-      </button>
-      <button
-        className="ms-Rating-button ratingButton-53 ms-Rating--small ratingStarIsSmall-54"
-        disabled={false}
-        id="Rating1-star-4"
-        onClick={[Function]}
-        onFocus={[Function]}
-        role="presentation"
-        type="button"
-      >
-        <span
-          className="ms-Rating-labelText labelText-56"
-          id="RatingLabel2-5"
-        >
-          
-        </span>
-        <div
-          className="ms-RatingStar-container ratingStar-50"
-        >
-          <i
-            aria-hidden={true}
-            className="ms-RatingStar-back ratingStarBack-58"
-            data-icon-name="FavoriteStarFill"
-            role="presentation"
-          />
-          <i
-            aria-hidden={true}
-            className="ms-RatingStar-front ratingStarFront-59"
-            data-icon-name="FavoriteStarFill"
-            role="presentation"
+            className="ms-RatingStar-front ratingStarFront-66"
+            data-icon-name="FavoriteStar"
             style={
               Object {
                 "width": "0%",

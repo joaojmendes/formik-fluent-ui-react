@@ -1,7 +1,7 @@
 // tslint:disable:jsx-no-lambda
 
 import { Field, FieldProps, Formik } from 'formik'
-import { IChoiceGroupOption } from 'office-ui-fabric-react'
+import { IChoiceGroupOption } from '@fluentui/react'
 import * as React from 'react'
 import { FormikChoiceGroup } from '../src/FormikChoiceGroup'
 import { StoryForm } from './StoryForm'

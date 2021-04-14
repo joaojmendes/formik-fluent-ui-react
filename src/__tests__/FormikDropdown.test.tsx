@@ -1,7 +1,7 @@
 // tslint:disable:jsx-no-lambda
 
 import { Field, FieldProps, Form, Formik } from 'formik'
-import { Dropdown, setIconOptions } from 'office-ui-fabric-react'
+import { Dropdown, setIconOptions } from '@fluentui/react'
 import * as React from 'react'
 import renderer from 'react-test-renderer'
 import { FormikDropdown, mapFieldToDropdown } from '../FormikDropdown'
@@ -17,7 +17,7 @@ class Values {
   public multi: null | string[] = ['bar', 'baz']
 }
 
-function createFieldProps(value: null | string | string[]): FieldProps<Values> {
+function createFieldProps(value: null | string | string[]): FieldProps<null | string | string[]> {
   return {
     field: {
       value,
@@ -67,9 +67,9 @@ test('<FormikDropdown /> renders a Fabric <Dropdown />', () => {
 })
 
 test('mapFieldToDropdown() maps FieldProps to IDropdownProps for single select', () => {
-  const { field, form } = createFieldProps('foo')
+  const { field, form, meta } = createFieldProps('foo')
 
-  const props = mapFieldToDropdown({ form, field })
+  const props = mapFieldToDropdown({ form, field, meta })
 
   expect(props.selectedKey).toBe(field.value)
 
@@ -80,9 +80,9 @@ test('mapFieldToDropdown() maps FieldProps to IDropdownProps for single select',
 })
 
 test('mapFieldToDropdown() maps FieldProps to IDropdownProps for multi select', () => {
-  const { field, form } = createFieldProps(['bar', 'baz'])
+  const { field, form, meta } = createFieldProps(['bar', 'baz'])
 
-  const props = mapFieldToDropdown({ form, field })
+  const props = mapFieldToDropdown({ form, field, meta })
 
   expect(props.selectedKeys).toBe(field.value)
 

@@ -3,10 +3,10 @@ import { Checkbox, ICheckboxProps } from '@fluentui/react'
 import * as React from 'react'
 import { createFakeEvent, Omit } from './utils'
 
-export function mapFieldToCheckbox<T = any>({
+export function mapFieldToCheckbox<V extends boolean, FormValues = any>({
   form,
-  field: { value, onChange, onBlur, ...field },
-}: FieldProps<T>): Pick<ICheckboxProps, 'checked' | 'name' | 'onChange'> {
+  field: { value, onChange, onBlur, checked, ...field },
+}: FieldProps<V, FormValues>): Pick<ICheckboxProps, 'checked' | 'name' | 'onChange'> {
   return {
     ...field,
     onChange: (_, checked) => {
@@ -17,16 +17,17 @@ export function mapFieldToCheckbox<T = any>({
   }
 }
 
-export type FormikCheckboxProps<T = any> = Omit<
+export type FormikCheckboxProps<V extends boolean, FormValues = any> = Omit<
   ICheckboxProps,
-  'value' | 'checked' | 'name' | 'onChange' | 'onBlur' | 'form'
+  'checked' | 'name' | 'onChange'
 > &
-  FieldProps<T>
+  FieldProps<V, FormValues>
 
-export function FormikCheckbox<T = any>({
+export function FormikCheckbox<V extends boolean, FormValues = any>({
   field,
   form,
+  meta,
   ...props
-}: FormikCheckboxProps<T>) {
-  return <Checkbox {...props} {...mapFieldToCheckbox({ field, form })} />
+}: FormikCheckboxProps<V, FormValues>) {
+  return <Checkbox {...props} {...mapFieldToCheckbox({ field, form, meta })} />
 }

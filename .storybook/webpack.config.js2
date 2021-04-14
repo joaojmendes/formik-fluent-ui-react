@@ -4,8 +4,11 @@ module.exports = (baseConfig, env, config) => {
   // Extend defaultConfig as you need.
 
   config.module.rules.push({
-    test: /\.(ts|tsx)$/,
+    test: /(?!\.test)\.(ts|tsx)$/,
     loader: require.resolve('ts-loader'),
+    options: {
+      transpileOnly: true,
+    }
   });
   config.resolve.extensions.push('.ts', '.tsx');
   return config;

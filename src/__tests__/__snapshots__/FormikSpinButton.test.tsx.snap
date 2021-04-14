@@ -2,53 +2,53 @@
 
 exports[`<FormikSpinButton /> renders correctly as a field component 1`] = `
 <form
+  action="#"
   onReset={[Function]}
   onSubmit={[Function]}
 >
   <div
-    className="css-47"
+    className="root-53"
   >
     <div
-      className="css-48"
+      className="labelWrapper-54"
     >
       <label
-        className="ms-Label root-54"
-        htmlFor="input2"
+        className="ms-Label label-60"
+        htmlFor="input0"
         id="Label1"
       >
         Rating
       </label>
     </div>
     <div
-      className="css-51"
+      className="spinButtonWrapper-57"
+      data-ktp-target={true}
     >
       <input
         aria-disabled={false}
         aria-labelledby="Label1"
-        aria-valuemax={100}
-        aria-valuemin={0}
         aria-valuenow={3}
         autoComplete="off"
-        className="ms-spinButton-input css-52"
+        className="ms-spinButton-input input-58"
+        data-ktp-execute-target={true}
         data-lpignore={true}
-        id="input2"
+        disabled={false}
+        id="input0"
         onBlur={[Function]}
         onChange={[Function]}
         onFocus={[Function]}
         onInput={[Function]}
         onKeyDown={[Function]}
         onKeyUp={[Function]}
-        readOnly={false}
         role="spinbutton"
         type="text"
-        value={3}
+        value="3"
       />
       <span
-        className="css-53"
+        className="arrowButtonsContainer-59"
       >
         <button
-          checked={false}
-          className="ms-Button ms-Button--icon ms-UpButton root-55"
+          className="ms-Button ms-Button--icon ms-UpButton root-61"
           data-is-focusable={false}
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -60,20 +60,24 @@ exports[`<FormikSpinButton /> renders correctly as a field component 1`] = `
           tabIndex={-1}
           type="button"
         >
-          <div
-            className="ms-Button-flexContainer flexContainer-56"
+          <span
+            className="ms-Button-flexContainer flexContainer-62"
+            data-automationid="splitbuttonprimary"
           >
             <i
               aria-hidden={true}
-              className="ms-Button-icon icon-63"
+              className="ms-Icon root-37 ms-Button-icon icon-64"
               data-icon-name="ChevronUpSmall"
-              role="presentation"
+              style={
+                Object {
+                  "fontFamily": undefined,
+                }
+              }
             />
-          </div>
+          </span>
         </button>
         <button
-          checked={false}
-          className="ms-Button ms-Button--icon ms-DownButton root-55"
+          className="ms-Button ms-Button--icon ms-DownButton root-61"
           data-is-focusable={false}
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -85,16 +89,21 @@ exports[`<FormikSpinButton /> renders correctly as a field component 1`] = `
           tabIndex={-1}
           type="button"
         >
-          <div
-            className="ms-Button-flexContainer flexContainer-56"
+          <span
+            className="ms-Button-flexContainer flexContainer-62"
+            data-automationid="splitbuttonprimary"
           >
             <i
               aria-hidden={true}
-              className="ms-Button-icon icon-63"
+              className="ms-Icon root-37 ms-Button-icon icon-64"
               data-icon-name="ChevronDownSmall"
-              role="presentation"
+              style={
+                Object {
+                  "fontFamily": undefined,
+                }
+              }
             />
-          </div>
+          </span>
         </button>
       </span>
     </div>

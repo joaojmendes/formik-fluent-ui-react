@@ -3,10 +3,10 @@ import { FieldProps } from 'formik'
 import * as React from 'react'
 import { createFakeEvent, invokeAll, Omit } from './utils'
 
-export function mapFieldToDatePicker<T = any>({
+export function mapFieldToDatePicker<V extends Date = Date, FormValues = any>({
   form,
   field,
-}: FieldProps<T>): Pick<
+}: FieldProps<V, FormValues>): Pick<
   IDatePickerProps,
   'value' | 'onSelectDate' | 'onAfterMenuDismiss'
 > {
@@ -16,20 +16,22 @@ export function mapFieldToDatePicker<T = any>({
     onSelectDate: date => form.setFieldValue(field.name, date),
   }
 }
-export type FormikDatePickerProps<T = any> = Omit<
+export type FormikDatePickerProps<V extends Date = Date, FormValues = any> = Omit<
   IDatePickerProps,
   'value' | 'onSelectDate' | 'onBlur' | 'onChange'
 > &
-  FieldProps<T>
+  FieldProps<V, FormValues>
 
-export function FormikDatePicker<T = any>({
+export function FormikDatePicker<V extends Date = Date, FormValues = any>({
   field,
   form,
+  meta,
   ...props
-}: FormikDatePickerProps<T>) {
+}: FormikDatePickerProps<V, FormValues>) {
   const { onAfterMenuDismiss, ...fieldProps } = mapFieldToDatePicker({
     field,
     form,
+    meta,
   })
 
   return (

@@ -1,7 +1,7 @@
 // tslint:disable:jsx-no-lambda
 
 import { Field, FieldProps, Formik } from 'formik'
-import { IPersonaProps, Label } from 'office-ui-fabric-react'
+import { IPersonaProps, Label } from '@fluentui/react'
 import * as React from 'react'
 import {
   FormikCompactPeoplePicker,

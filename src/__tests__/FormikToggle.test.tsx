@@ -1,5 +1,5 @@
 import { Field, FieldProps, Form, Formik } from 'formik'
-import { Toggle } from 'office-ui-fabric-react'
+import { Toggle } from '@fluentui/react'
 import * as React from 'react'
 import renderer from 'react-test-renderer'
 import { FormikToggle, mapFieldToToggle } from '../FormikToggle'
@@ -8,7 +8,7 @@ import { noop, serialize } from './utils'
 class Values {
   public isChecked: boolean = false
 }
-function createFieldProps(value: boolean = false): FieldProps<Values> {
+function createFieldProps(value: boolean = false): FieldProps<boolean> {
   return {
     field: {
       value,
@@ -44,8 +44,8 @@ test('<FormikToggle /> renders a Fabric <Toggle />', () => {
 })
 
 test('mapFieldToToggle() maps FieldProps to IToggleProps', () => {
-  const { field, form } = createFieldProps()
-  const props = mapFieldToToggle({ form, field })
+  const { field, form, meta } = createFieldProps()
+  const props = mapFieldToToggle({ form, field, meta })
 
   expect(props.checked).toBe(field.value)
 

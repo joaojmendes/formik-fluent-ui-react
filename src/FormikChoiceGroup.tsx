@@ -3,10 +3,10 @@ import { FieldProps } from 'formik'
 import * as React from 'react'
 import { createFakeEvent, Omit } from './utils'
 
-export function mapFieldToChoiceGroup<T = any>({
+export function mapFieldToChoiceGroup<V extends string | number, FormValues = any>({
   form,
   field,
-}: FieldProps<T>): Pick<
+}: FieldProps<V, FormValues>): Pick<
   IChoiceGroupProps,
   'selectedKey' | 'onChange' | 'name'
 > {
@@ -20,16 +20,17 @@ export function mapFieldToChoiceGroup<T = any>({
   }
 }
 
-export type FormikChoiceGroupProps<T = any> = Omit<
+export type FormikChoiceGroupProps<V extends string | number, FormValues = any> = Omit<
   IChoiceGroupProps,
   'selectedKey' | 'name' | 'onChange' | 'onBlur' | 'form'
 > &
-  FieldProps<T>
+  FieldProps<V, FormValues>
 
-export function FormikChoiceGroup<T = any>({
+export function FormikChoiceGroup<V extends string | number, FormValues = any>({
   field,
   form,
+  meta,
   ...props
-}: FormikChoiceGroupProps<T>) {
-  return <ChoiceGroup {...props} {...mapFieldToChoiceGroup({ field, form })} />
+}: FormikChoiceGroupProps<V, FormValues>) {
+  return <ChoiceGroup {...props} {...mapFieldToChoiceGroup({ field, form, meta })} />
 }

@@ -22,7 +22,7 @@ npm install --save formik-fluent-ui-react
 
 ```tsx
 import { Formik, Form, Field } from 'formik'
-import { DatePicker } from 'office-ui-fabric-react'
+import { DatePicker } from '@fluentui/react'
 import { FormikDatePicker, mapFieldToDatePicker } from 'formik-fluent-ui-react'
 
 const OldAndUgly = () => (

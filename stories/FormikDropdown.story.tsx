@@ -1,7 +1,7 @@
 // tslint:disable:jsx-no-lambda
 
 import { Field, FieldProps, Formik } from 'formik'
-import { IDropdownOption } from 'office-ui-fabric-react'
+import { IDropdownOption } from '@fluentui/react'
 import * as React from 'react'
 import { FormikDropdown } from '../src/FormikDropdown'
 import { StoryForm } from './StoryForm'

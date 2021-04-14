@@ -3,12 +3,12 @@ import { FieldProps } from 'formik'
 import * as React from 'react'
 import { createFakeEvent, Omit } from './utils'
 
-export function mapFieldToRating<T = any>({
+export function mapFieldToRating<V extends number = number, FormValues = any>({
   form,
   field,
-}: FieldProps<T>): Pick<IRatingProps, 'value' | 'onChange'> {
+}: FieldProps<V, FormValues>): Pick<IRatingProps, 'rating' | 'onChange'> {
   return {
-    value: field.value,
+    rating: field.value,
     onChange: (_, value) => {
       form.setFieldValue(field.name, value)
       field.onBlur(createFakeEvent(field))
@@ -16,16 +16,17 @@ export function mapFieldToRating<T = any>({
   }
 }
 
-export type FormikRatingProps<T = any> = Omit<
+export type FormikRatingProps<V extends number = number, FormValues = any> = Omit<
   IRatingProps,
-  'value' | 'onChange' | 'onBlur' | 'form'
+  'rating' | 'onChange' | 'onBlur'
 > &
-  FieldProps<T>
+  FieldProps<V, FormValues>
 
-export function FormikRating<T = any>({
+export function FormikRating<V extends number = number, FormValues = any>({
   field,
   form,
+  meta,
   ...props
-}: FormikRatingProps<T>) {
-  return <Rating {...props} {...mapFieldToRating({ field, form })} />
+}: FormikRatingProps<V, FormValues>) {
+  return <Rating {...props} {...mapFieldToRating({ field, form, meta })} />
 }

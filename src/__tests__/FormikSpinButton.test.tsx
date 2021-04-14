@@ -1,5 +1,5 @@
 import { Field, FieldProps, Form, Formik } from 'formik'
-import { setIconOptions, SpinButton } from 'office-ui-fabric-react'
+import { setIconOptions, SpinButton } from '@fluentui/react'
 import * as React from 'react'
 import renderer from 'react-test-renderer'
 import { FormikSpinButton, mapFieldToSpinButton } from '../FormikSpinButton'
@@ -11,10 +11,10 @@ setIconOptions({
 })
 
 class Values {
-  public rating: number | string = 3
+  public rating: string = "3"
 }
 
-function createFieldProps(value: number | string = 3): FieldProps<Values> {
+function createFieldProps(value: string = "3"): FieldProps<string> {
   return {
     field: {
       value,
@@ -23,6 +23,7 @@ function createFieldProps(value: number | string = 3): FieldProps<Values> {
       name: 'rating',
     },
     form: { setFieldValue: jest.fn(), handleBlur: jest.fn(() => jest.fn()) },
+    meta: {}
   } as any
 }
 
@@ -52,8 +53,8 @@ test('<FormikSpinButton /> renders a Fabric <SpinButton />', () => {
 })
 
 test('mapFieldToSpinButton() maps FieldProps to ISpinButtonProps', () => {
-  const { field, form } = createFieldProps()
-  const props = mapFieldToSpinButton({ form, field }, { min: 0, max: 10 })
+  const { field, form, meta } = createFieldProps()
+  const props = mapFieldToSpinButton({ form, field, meta }, { min: 0, max: 10 })
 
   expect(props.value).toBe(field.value)
 
@@ -89,9 +90,9 @@ test('mapFieldToSpinButton() maps FieldProps to ISpinButtonProps', () => {
 })
 
 test('mapFieldToSpinButton() with custom change handlers', () => {
-  const { field, form } = createFieldProps()
+  const { field, form, meta } = createFieldProps()
   const props = mapFieldToSpinButton(
-    { form, field },
+    { form, field, meta },
     {
       onIncrement: value => `${+value.replace(/[\D\s]/g, '') + 1} cm`,
       onDecrement: value => `${+value.replace(/[\D\s]/g, '') - 1} cm`,

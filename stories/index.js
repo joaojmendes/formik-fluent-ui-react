@@ -1,4 +1,4 @@
-import { initializeIcons } from 'office-ui-fabric-react/lib/Icons'
+import { initializeIcons } from '@fluentui/react/lib/Icons'
 import { storiesOf } from '@storybook/react'
 import { FormikCheckboxStory } from './FormikCheckbox.story'
 import { FormikChoiceGroupStory } from './FormikChoiceGroup.story'
