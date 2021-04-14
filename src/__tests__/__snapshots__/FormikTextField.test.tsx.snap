@@ -2,28 +2,31 @@
 
 exports[`<FormikMaskedTextField /> renders correctly as a field component 1`] = `
 <form
+  action="#"
   onReset={[Function]}
   onSubmit={[Function]}
 >
   <div
-    className="ms-TextField root-48"
+    className="ms-TextField root-54"
   >
     <div
-      className="ms-TextField-wrapper wrapper-49"
+      className="ms-TextField-wrapper"
     >
       <label
-        className="ms-Label root-57"
-        htmlFor="TextField9"
+        className="ms-Label root-65"
+        htmlFor="TextField12"
+        id="TextFieldLabel14"
       >
         Masked
       </label>
       <div
-        className="ms-TextField-fieldGroup fieldGroup-50"
+        className="ms-TextField-fieldGroup fieldGroup-55"
       >
         <input
           aria-invalid={false}
-          className="ms-TextField-field field-51"
-          id="TextField9"
+          aria-labelledby="TextFieldLabel14"
+          className="ms-TextField-field field-56"
+          id="TextField12"
           name="masked"
           onBlur={[Function]}
           onChange={[Function]}
@@ -44,28 +47,31 @@ exports[`<FormikMaskedTextField /> renders correctly as a field component 1`] = 
 
 exports[`<FormikTextField /> renders correctly as a field component 1`] = `
 <form
+  action="#"
   onReset={[Function]}
   onSubmit={[Function]}
 >
   <div
-    className="ms-TextField root-48"
+    className="ms-TextField root-54"
   >
     <div
-      className="ms-TextField-wrapper wrapper-49"
+      className="ms-TextField-wrapper"
     >
       <label
-        className="ms-Label root-57"
-        htmlFor="TextField1"
+        className="ms-Label root-65"
+        htmlFor="TextField0"
+        id="TextFieldLabel2"
       >
         Email
       </label>
       <div
-        className="ms-TextField-fieldGroup fieldGroup-50"
+        className="ms-TextField-fieldGroup fieldGroup-55"
       >
         <input
           aria-invalid={false}
-          className="ms-TextField-field field-51"
-          id="TextField1"
+          aria-labelledby="TextFieldLabel2"
+          className="ms-TextField-field field-56"
+          id="TextField0"
           name="email"
           onBlur={[Function]}
           onChange={[Function]}

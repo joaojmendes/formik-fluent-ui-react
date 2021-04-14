@@ -3,59 +3,64 @@ import { FieldProps } from 'formik'
 import * as React from 'react'
 import { createFakeEvent, getErrorMessage, invokeAll, Omit } from './utils'
 
-export function mapFieldToDropdown<T = any>({
+export function mapFieldToDropdown<V extends string | number | string[] | number[] | null, FormValues = any>({
   form,
   field,
-}: FieldProps<T>): Pick<
+  meta
+}: FieldProps<V, FormValues>): Pick<
   IDropdownProps,
   'selectedKey' | 'selectedKeys' | 'onDismiss' | 'onChange' | 'errorMessage'
 > {
   const multiSelect = Array.isArray(field.value)
   const shared = {
-    errorMessage: getErrorMessage({ field, form }),
+    errorMessage: getErrorMessage({ field, form, meta }),
     onDismiss: () => field.onBlur(createFakeEvent(field)),
   }
 
   return multiSelect
     ? {
         ...shared,
-        selectedKeys: field.value,
+        selectedKeys: (field.value as string[] | number[]),
         onChange: (_, option) => {
           const value = field.value as any[]
 
-          if (option!.selected) {
-            form.setFieldValue(field.name, [...value, option!.key])
-          } else {
-            const idx = field.value.indexOf(option!.key)
+          if (typeof option !== "undefined") {
+            if (option.selected) {
+              form.setFieldValue(field.name, [...value, option!.key])
+            } else {
+              const idx = (field.value as any[]).indexOf(option!.key)
 
-            if (idx !== -1) {
-              form.setFieldValue(field.name, [
-                ...value.slice(0, idx),
-                ...value.slice(idx + 1),
-              ])
+              if (idx !== -1) {
+                form.setFieldValue(field.name, [
+                  ...value.slice(0, idx),
+                  ...value.slice(idx + 1),
+                ])
+              }
             }
           }
         },
       }
     : {
         ...shared,
-        selectedKey: field.value,
+        selectedKey: (field.value as string | number | null),
         onChange: (_, option) => {
           form.setFieldValue(field.name, option!.key)
         },
       }
 }
 
-export type FormikDropdownProps<T> = Omit<IDropdownProps, 'selectedKey'> &
-  FieldProps<T>
-export function FormikDropdown<T = any>({
+export type FormikDropdownProps<V, FormValues> = Omit<IDropdownProps, 'selectedKey'> &
+  FieldProps<V, FormValues>
+export function FormikDropdown<V extends string | number | string[] | number[] | null, FormValues = any>({
   field,
   form,
+  meta,
   ...props
-}: FormikDropdownProps<T>) {
+}: FormikDropdownProps<V, FormValues>) {
   const { errorMessage, onDismiss, ...fieldProps } = mapFieldToDropdown({
     field,
     form,
+    meta
   })
 
   return (

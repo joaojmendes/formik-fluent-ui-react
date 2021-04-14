@@ -2,26 +2,26 @@
 
 exports[`<FormikChoiceGroup /> renders correctly as a field component 1`] = `
 <form
+  action="#"
   onReset={[Function]}
   onSubmit={[Function]}
 >
   <div
-    className="applicationRole-47"
-    role="application"
+    className="ms-ChoiceFieldGroup root-53"
+    name="selection"
   >
     <div
-      aria-labelledby="ChoiceGroup1-label"
-      className="ms-ChoiceFieldGroup root-48"
+      aria-labelledby="ChoiceGroupLabel1"
       role="radiogroup"
     >
       <label
-        className="ms-Label root-50"
-        id="ChoiceGroup1-label"
+        className="ms-Label root-54"
+        id="ChoiceGroupLabel1"
       >
         Selection
       </label>
       <div
-        className="ms-ChoiceFieldGroup-flexContainer flexContainer-49"
+        className="ms-ChoiceFieldGroup-flexContainer"
       />
     </div>
   </div>

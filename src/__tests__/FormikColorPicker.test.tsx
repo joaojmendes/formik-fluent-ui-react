@@ -1,5 +1,5 @@
 import { Field, FieldProps, Form, Formik } from 'formik'
-import { ColorPicker } from 'office-ui-fabric-react'
+import { ColorPicker } from '@fluentui/react'
 import * as React from 'react'
 import renderer from 'react-test-renderer'
 import { FormikColorPicker, mapFieldToColorPicker } from '../FormikColorPicker'
@@ -9,7 +9,7 @@ class Values {
   public color: string = '#000000'
 }
 
-function createFieldProps(value: string = '#000000'): FieldProps<Values> {
+function createFieldProps(value: string = '#000000'): FieldProps<string> {
   return {
     field: {
       value,
@@ -46,12 +46,22 @@ test('<FormikColorPicker /> renders a Fabric <ColorPicker />', () => {
 })
 
 test('mapFieldToColorPicker() maps FieldProps to IColorPickerProps', () => {
-  const { field, form } = createFieldProps()
-  const props = mapFieldToColorPicker({ form, field })
+  const { field, form, meta } = createFieldProps()
+  const props = mapFieldToColorPicker({ form, field, meta })
 
   expect(props.color).toBe(field.value)
 
-
+  props.onChange!(null as any, {
+    r: 5,
+    g: 5,
+    b: 5,
+    h: 5,
+    hex: "#ffffff",
+    str: "asdf",
+    s: 5,
+    v: 5
+  }
+)
 
   expect(form.setFieldValue).toHaveBeenCalledTimes(1)
   expect(form.setFieldValue).toHaveBeenCalledWith(field.name, '#ffffff')

@@ -1,9 +1,9 @@
 import { action } from '@storybook/addon-actions'
-import { FormikActions } from 'formik'
+import { FormikHelpers } from 'formik'
 
 export function handleSubmit<T>(
   values: T,
-  { setSubmitting }: FormikActions<T>
+  { setSubmitting }: FormikHelpers<T>
 ) {
   action('submit:start')(values)
   setTimeout(() => {

@@ -3,8 +3,8 @@ import { FieldProps } from 'formik'
 import * as React from 'react'
 import { createFakeEvent, Omit } from './utils'
 
-export function mapFieldToSpinButton<T = any>(
-  { form, field }: FieldProps<T>,
+export function mapFieldToSpinButton<V extends string, FormValues = any>(
+  { form, field }: FieldProps<V, FormValues>,
   {
     min,
     max,
@@ -48,7 +48,7 @@ export function mapFieldToSpinButton<T = any>(
   }
 
   return {
-    value: field.value,
+    value: field.value.toString(),
     onIncrement: handleIncrement,
     onDecrement: handleDecrement,
     onValidate: handleValidate,
@@ -56,15 +56,16 @@ export function mapFieldToSpinButton<T = any>(
   }
 }
 
-export type FormikSpinButtonProps<T = any> = Omit<ISpinButtonProps, 'value'> &
-  FieldProps<T>
+export type FormikSpinButtonProps<V extends string, FormValues = any> = Omit<ISpinButtonProps, 'value'> &
+  FieldProps<V, FormValues>
 
-export function FormikSpinButton<T = any>({
+export function FormikSpinButton<V extends string, FormValues = any>({
   field,
   form,
+  meta,
   ...props
-}: FormikSpinButtonProps<T>) {
+}: FormikSpinButtonProps<V, FormValues>) {
   return (
-    <SpinButton {...props} {...mapFieldToSpinButton({ field, form }, props)} />
+    <SpinButton {...props} {...mapFieldToSpinButton({ field, form, meta }, props)} />
   )
 }

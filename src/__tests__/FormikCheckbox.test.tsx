@@ -1,5 +1,5 @@
 import { Field, FieldProps, Form, Formik } from 'formik'
-import { Checkbox, setIconOptions } from 'office-ui-fabric-react'
+import { Checkbox, setIconOptions } from '@fluentui/react'
 import * as React from 'react'
 import renderer from 'react-test-renderer'
 import { FormikCheckbox, mapFieldToCheckbox } from '../FormikCheckbox'
@@ -14,7 +14,7 @@ class Values {
   public isChecked: boolean = false
 }
 
-function createFieldProps(value: boolean = false): FieldProps<Values> {
+function createFieldProps(value: boolean = false): FieldProps<boolean> {
   return {
     field: {
       value,
@@ -28,7 +28,7 @@ function createFieldProps(value: boolean = false): FieldProps<Values> {
 
 test('<FormikCheckbox /> renders correctly as a field component', () => {
   const component = renderer.create(
-    <Formik initialValues={{ isChecked: true }} onSubmit={noop}>
+    <Formik initialValues={new Values()} onSubmit={noop}>
       <Form>
         <Field name="isChecked" label="Checkbox" component={FormikCheckbox} />
       </Form>
@@ -51,8 +51,8 @@ test('<FormikCheckbox /> renders a Fabric <Checkbox />', () => {
 })
 
 test('mapFieldToCheckbox() maps FieldProps to ICheckboxProps', () => {
-  const { field, form } = createFieldProps()
-  const props = mapFieldToCheckbox({ form, field })
+  const { field, form, meta } = createFieldProps()
+  const props = mapFieldToCheckbox({ form, field, meta })
 
   expect(props.checked).toBe(field.value)
 

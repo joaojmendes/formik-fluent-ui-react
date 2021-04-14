@@ -2,20 +2,21 @@
 
 exports[`<FormikCompactPeoplePicker /> renders correctly as a field component 1`] = `
 <form
+  action="#"
   onReset={[Function]}
   onSubmit={[Function]}
 >
   <div
     className="ms-BasePicker"
+    onBlur={[Function]}
     onKeyDown={[Function]}
   >
     <div
-      className="ms-FocusZone"
-      data-focuszone-id="FocusZone35"
+      className="ms-FocusZone css-57"
+      data-focuszone-id="FocusZone28"
       onFocus={[Function]}
       onKeyDown={[Function]}
       onMouseDownCapture={[Function]}
-      role="presentation"
     >
       <div
         className="ms-SelectionZone"
@@ -30,39 +31,39 @@ exports[`<FormikCompactPeoplePicker /> renders correctly as a field component 1`
         role="presentation"
       >
         <div
-          className="ms-BasePicker-text pickerText_e7c83bc9"
+          className="ms-BasePicker-text text-53"
         >
           <span
-            className="pickerItems_e7c83bc9"
-            id="selected-items-id__34"
+            className="ms-BasePicker-itemsWrapper itemsWrapper-54"
+            id="selected-items-id__27"
             role="list"
           >
             <div
-              aria-labelledby="selectedItemPersona-id__42"
-              className="ms-PickerPersona-container personaContainer_27aff86c"
+              aria-labelledby="selectedItemPersona-id__35"
+              className="ms-PickerPersona-container root-58"
               data-is-focusable={true}
               data-is-sub-focuszone={true}
               data-selection-index={0}
               role="listitem"
             >
               <div
-                className="ms-PickerItem-content itemContent_27aff86c"
-                id="selectedItemPersona-id__42"
+                className="ms-PickerItem-content itemContent-59"
+                id="selectedItemPersona-id__35"
               >
                 <div
-                  className="ms-Persona ms-Persona--size28 root-47"
-                  size={7}
+                  className="ms-Persona ms-Persona--size24 root-61"
                 >
                   <div
-                    className="ms-Persona-coin ms-Persona--size28 coin-54"
-                    size={7}
+                    className="ms-Persona-coin ms-Persona--size24 coin-68"
+                    role="presentation"
                   >
                     <div
-                      className="ms-Persona-imageArea imageArea-56"
+                      className="ms-Persona-imageArea imageArea-70"
+                      role="presentation"
                     >
                       <div
                         aria-hidden="true"
-                        className="ms-Persona-initials initials-59"
+                        className="ms-Persona-initials initials-73"
                       >
                         <span>
                           FB
@@ -71,15 +72,17 @@ exports[`<FormikCompactPeoplePicker /> renders correctly as a field component 1`
                     </div>
                   </div>
                   <div
-                    className="ms-Persona-details details-48"
+                    className="ms-Persona-details details-62"
                   >
                     <div
-                      className="ms-Persona-primaryText primaryText-49"
+                      className="ms-Persona-primaryText primaryText-63"
+                      dir="auto"
                     >
                       <div
-                        className="ms-TooltipHost root-62"
+                        className="ms-TooltipHost root-76"
                         onBlurCapture={[Function]}
                         onFocusCapture={[Function]}
+                        onKeyDown={[Function]}
                         onMouseEnter={[Function]}
                         onMouseLeave={[Function]}
                       >
@@ -87,12 +90,14 @@ exports[`<FormikCompactPeoplePicker /> renders correctly as a field component 1`
                       </div>
                     </div>
                     <div
-                      className="ms-Persona-secondaryText secondaryText-50"
+                      className="ms-Persona-secondaryText secondaryText-64"
+                      dir="auto"
                     >
                       <div
-                        className="ms-TooltipHost root-62"
+                        className="ms-TooltipHost root-76"
                         onBlurCapture={[Function]}
                         onFocusCapture={[Function]}
+                        onKeyDown={[Function]}
                         onMouseEnter={[Function]}
                         onMouseLeave={[Function]}
                       >
@@ -100,16 +105,18 @@ exports[`<FormikCompactPeoplePicker /> renders correctly as a field component 1`
                       </div>
                     </div>
                     <div
-                      className="ms-Persona-tertiaryText tertiaryText-51"
+                      className="ms-Persona-tertiaryText tertiaryText-65"
+                      dir="auto"
                     />
                     <div
-                      className="ms-Persona-optionalText optionalText-52"
+                      className="ms-Persona-optionalText optionalText-66"
+                      dir="auto"
                     />
                   </div>
                 </div>
               </div>
               <button
-                className="ms-Button ms-Button--icon ms-PickerItem-removeButton removeButton_27aff86c root-63"
+                className="ms-Button ms-Button--icon ms-PickerItem-removeButton removeButton-77"
                 data-is-focusable={true}
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -119,43 +126,46 @@ exports[`<FormikCompactPeoplePicker /> renders correctly as a field component 1`
                 onMouseUp={[Function]}
                 type="button"
               >
-                <div
-                  className="ms-Button-flexContainer flexContainer-64"
+                <span
+                  className="ms-Button-flexContainer flexContainer-78"
+                  data-automationid="splitbuttonprimary"
                 >
                   <i
                     aria-hidden={true}
-                    className="ms-Button-icon icon-71"
+                    className="ms-Button-icon icon-84"
                     data-icon-name="Cancel"
-                    role="presentation"
-                    style={
-                      Object {
-                        "fontSize": "12px",
-                      }
-                    }
                   />
-                </div>
+                </span>
               </button>
             </div>
           </span>
           <input
             aria-autocomplete="both"
-            aria-controls=" "
-            aria-describedby="selected-items-id__34"
+            aria-controls=""
+            aria-describedby="selected-items-id__27"
             aria-expanded={false}
-            aria-haspopup="true"
+            aria-haspopup="listbox"
             autoCapitalize="off"
             autoComplete="off"
-            className="ms-BasePicker-input pickerInput_e7c83bc9"
+            className="ms-BasePicker-input input-55"
             data-lpignore={true}
+            id="combobox-id__27"
             onBlur={[Function]}
             onChange={[Function]}
             onClick={[Function]}
             onCompositionEnd={[Function]}
             onCompositionStart={[Function]}
+            onCompositionUpdate={[Function]}
             onFocus={[Function]}
             onInput={[Function]}
             onKeyDown={[Function]}
             role="combobox"
+            spellCheck={false}
+            style={
+              Object {
+                "fontFamily": "inherit",
+              }
+            }
             value=""
           />
         </div>
@@ -167,34 +177,43 @@ exports[`<FormikCompactPeoplePicker /> renders correctly as a field component 1`
 
 exports[`<FormikListPeoplePicker /> renders correctly as a field component 1`] = `
 <form
+  action="#"
   onReset={[Function]}
   onSubmit={[Function]}
 >
-  <div>
+  <div
+    onBlur={[Function]}
+  >
     <div
       className="ms-BasePicker"
       onKeyDown={[Function]}
     >
       <div
-        className="ms-BasePicker-text pickerText_e7c83bc9"
+        className="ms-BasePicker-text text-53"
       >
         <input
-          aria-controls=" "
+          aria-autocomplete="both"
           aria-expanded={false}
-          aria-haspopup="true"
+          aria-haspopup="listbox"
           autoCapitalize="off"
           autoComplete="off"
-          className="ms-BasePicker-input pickerInput_e7c83bc9"
+          className="ms-BasePicker-input input-55"
           data-lpignore={true}
           onBlur={[Function]}
           onChange={[Function]}
           onClick={[Function]}
           onCompositionEnd={[Function]}
           onCompositionStart={[Function]}
+          onCompositionUpdate={[Function]}
           onFocus={[Function]}
           onInput={[Function]}
           onKeyDown={[Function]}
           role="combobox"
+          style={
+            Object {
+              "fontFamily": "inherit",
+            }
+          }
           value=""
         />
       </div>
@@ -212,40 +231,40 @@ exports[`<FormikListPeoplePicker /> renders correctly as a field component 1`] =
       role="presentation"
     >
       <div
-        className="ms-FocusZone ms-BasePicker-selectedItems"
-        data-focuszone-id="FocusZone68"
-        id="selected-items-id__67"
+        className="ms-FocusZone css-57 ms-BasePicker-selectedItems"
+        data-focuszone-id="FocusZone55"
+        id="selected-items-id__54"
         onFocus={[Function]}
         onKeyDown={[Function]}
         onMouseDownCapture={[Function]}
-        role="presentation"
+        role="list"
       >
         <div
-          aria-labelledby="selectedItemPersona-id__75"
-          className="ms-PickerPersona-container personaContainer_27aff86c"
+          aria-labelledby="selectedItemPersona-id__62"
+          className="ms-PickerPersona-container root-58"
           data-is-focusable={true}
           data-is-sub-focuszone={true}
           data-selection-index={0}
           role="listitem"
         >
           <div
-            className="ms-PickerItem-content itemContent_27aff86c"
-            id="selectedItemPersona-id__75"
+            className="ms-PickerItem-content itemContent-59"
+            id="selectedItemPersona-id__62"
           >
             <div
-              className="ms-Persona ms-Persona--size28 root-47"
-              size={7}
+              className="ms-Persona ms-Persona--size24 root-61"
             >
               <div
-                className="ms-Persona-coin ms-Persona--size28 coin-54"
-                size={7}
+                className="ms-Persona-coin ms-Persona--size24 coin-68"
+                role="presentation"
               >
                 <div
-                  className="ms-Persona-imageArea imageArea-56"
+                  className="ms-Persona-imageArea imageArea-70"
+                  role="presentation"
                 >
                   <div
                     aria-hidden="true"
-                    className="ms-Persona-initials initials-59"
+                    className="ms-Persona-initials initials-73"
                   >
                     <span>
                       FB
@@ -254,15 +273,17 @@ exports[`<FormikListPeoplePicker /> renders correctly as a field component 1`] =
                 </div>
               </div>
               <div
-                className="ms-Persona-details details-48"
+                className="ms-Persona-details details-62"
               >
                 <div
-                  className="ms-Persona-primaryText primaryText-49"
+                  className="ms-Persona-primaryText primaryText-63"
+                  dir="auto"
                 >
                   <div
-                    className="ms-TooltipHost root-62"
+                    className="ms-TooltipHost root-76"
                     onBlurCapture={[Function]}
                     onFocusCapture={[Function]}
+                    onKeyDown={[Function]}
                     onMouseEnter={[Function]}
                     onMouseLeave={[Function]}
                   >
@@ -270,12 +291,14 @@ exports[`<FormikListPeoplePicker /> renders correctly as a field component 1`] =
                   </div>
                 </div>
                 <div
-                  className="ms-Persona-secondaryText secondaryText-50"
+                  className="ms-Persona-secondaryText secondaryText-64"
+                  dir="auto"
                 >
                   <div
-                    className="ms-TooltipHost root-62"
+                    className="ms-TooltipHost root-76"
                     onBlurCapture={[Function]}
                     onFocusCapture={[Function]}
+                    onKeyDown={[Function]}
                     onMouseEnter={[Function]}
                     onMouseLeave={[Function]}
                   >
@@ -283,16 +306,18 @@ exports[`<FormikListPeoplePicker /> renders correctly as a field component 1`] =
                   </div>
                 </div>
                 <div
-                  className="ms-Persona-tertiaryText tertiaryText-51"
+                  className="ms-Persona-tertiaryText tertiaryText-65"
+                  dir="auto"
                 />
                 <div
-                  className="ms-Persona-optionalText optionalText-52"
+                  className="ms-Persona-optionalText optionalText-66"
+                  dir="auto"
                 />
               </div>
             </div>
           </div>
           <button
-            className="ms-Button ms-Button--icon ms-PickerItem-removeButton removeButton_27aff86c root-63"
+            className="ms-Button ms-Button--icon ms-PickerItem-removeButton removeButton-77"
             data-is-focusable={true}
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -302,21 +327,16 @@ exports[`<FormikListPeoplePicker /> renders correctly as a field component 1`] =
             onMouseUp={[Function]}
             type="button"
           >
-            <div
-              className="ms-Button-flexContainer flexContainer-64"
+            <span
+              className="ms-Button-flexContainer flexContainer-78"
+              data-automationid="splitbuttonprimary"
             >
               <i
                 aria-hidden={true}
-                className="ms-Button-icon icon-71"
+                className="ms-Button-icon icon-84"
                 data-icon-name="Cancel"
-                role="presentation"
-                style={
-                  Object {
-                    "fontSize": "12px",
-                  }
-                }
               />
-            </div>
+            </span>
           </button>
         </div>
       </div>
@@ -327,20 +347,21 @@ exports[`<FormikListPeoplePicker /> renders correctly as a field component 1`] =
 
 exports[`<FormikNormalPeoplePicker /> renders correctly as a field component 1`] = `
 <form
+  action="#"
   onReset={[Function]}
   onSubmit={[Function]}
 >
   <div
     className="ms-BasePicker"
+    onBlur={[Function]}
     onKeyDown={[Function]}
   >
     <div
-      className="ms-FocusZone"
-      data-focuszone-id="FocusZone2"
+      className="ms-FocusZone css-57"
+      data-focuszone-id="FocusZone1"
       onFocus={[Function]}
       onKeyDown={[Function]}
       onMouseDownCapture={[Function]}
-      role="presentation"
     >
       <div
         className="ms-SelectionZone"
@@ -355,39 +376,39 @@ exports[`<FormikNormalPeoplePicker /> renders correctly as a field component 1`]
         role="presentation"
       >
         <div
-          className="ms-BasePicker-text pickerText_e7c83bc9"
+          className="ms-BasePicker-text text-53"
         >
           <span
-            className="pickerItems_e7c83bc9"
-            id="selected-items-id__1"
+            className="ms-BasePicker-itemsWrapper itemsWrapper-54"
+            id="selected-items-id__0"
             role="list"
           >
             <div
-              aria-labelledby="selectedItemPersona-id__9"
-              className="ms-PickerPersona-container personaContainer_27aff86c"
+              aria-labelledby="selectedItemPersona-id__8"
+              className="ms-PickerPersona-container root-58"
               data-is-focusable={true}
               data-is-sub-focuszone={true}
               data-selection-index={0}
               role="listitem"
             >
               <div
-                className="ms-PickerItem-content itemContent_27aff86c"
-                id="selectedItemPersona-id__9"
+                className="ms-PickerItem-content itemContent-59"
+                id="selectedItemPersona-id__8"
               >
                 <div
-                  className="ms-Persona ms-Persona--size28 root-47"
-                  size={7}
+                  className="ms-Persona ms-Persona--size24 root-61"
                 >
                   <div
-                    className="ms-Persona-coin ms-Persona--size28 coin-54"
-                    size={7}
+                    className="ms-Persona-coin ms-Persona--size24 coin-68"
+                    role="presentation"
                   >
                     <div
-                      className="ms-Persona-imageArea imageArea-56"
+                      className="ms-Persona-imageArea imageArea-70"
+                      role="presentation"
                     >
                       <div
                         aria-hidden="true"
-                        className="ms-Persona-initials initials-59"
+                        className="ms-Persona-initials initials-73"
                       >
                         <span>
                           FB
@@ -396,15 +417,17 @@ exports[`<FormikNormalPeoplePicker /> renders correctly as a field component 1`]
                     </div>
                   </div>
                   <div
-                    className="ms-Persona-details details-48"
+                    className="ms-Persona-details details-62"
                   >
                     <div
-                      className="ms-Persona-primaryText primaryText-49"
+                      className="ms-Persona-primaryText primaryText-63"
+                      dir="auto"
                     >
                       <div
-                        className="ms-TooltipHost root-62"
+                        className="ms-TooltipHost root-76"
                         onBlurCapture={[Function]}
                         onFocusCapture={[Function]}
+                        onKeyDown={[Function]}
                         onMouseEnter={[Function]}
                         onMouseLeave={[Function]}
                       >
@@ -412,12 +435,14 @@ exports[`<FormikNormalPeoplePicker /> renders correctly as a field component 1`]
                       </div>
                     </div>
                     <div
-                      className="ms-Persona-secondaryText secondaryText-50"
+                      className="ms-Persona-secondaryText secondaryText-64"
+                      dir="auto"
                     >
                       <div
-                        className="ms-TooltipHost root-62"
+                        className="ms-TooltipHost root-76"
                         onBlurCapture={[Function]}
                         onFocusCapture={[Function]}
+                        onKeyDown={[Function]}
                         onMouseEnter={[Function]}
                         onMouseLeave={[Function]}
                       >
@@ -425,16 +450,18 @@ exports[`<FormikNormalPeoplePicker /> renders correctly as a field component 1`]
                       </div>
                     </div>
                     <div
-                      className="ms-Persona-tertiaryText tertiaryText-51"
+                      className="ms-Persona-tertiaryText tertiaryText-65"
+                      dir="auto"
                     />
                     <div
-                      className="ms-Persona-optionalText optionalText-52"
+                      className="ms-Persona-optionalText optionalText-66"
+                      dir="auto"
                     />
                   </div>
                 </div>
               </div>
               <button
-                className="ms-Button ms-Button--icon ms-PickerItem-removeButton removeButton_27aff86c root-63"
+                className="ms-Button ms-Button--icon ms-PickerItem-removeButton removeButton-77"
                 data-is-focusable={true}
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -444,43 +471,46 @@ exports[`<FormikNormalPeoplePicker /> renders correctly as a field component 1`]
                 onMouseUp={[Function]}
                 type="button"
               >
-                <div
-                  className="ms-Button-flexContainer flexContainer-64"
+                <span
+                  className="ms-Button-flexContainer flexContainer-78"
+                  data-automationid="splitbuttonprimary"
                 >
                   <i
                     aria-hidden={true}
-                    className="ms-Button-icon icon-71"
+                    className="ms-Button-icon icon-84"
                     data-icon-name="Cancel"
-                    role="presentation"
-                    style={
-                      Object {
-                        "fontSize": "12px",
-                      }
-                    }
                   />
-                </div>
+                </span>
               </button>
             </div>
           </span>
           <input
             aria-autocomplete="both"
-            aria-controls=" "
-            aria-describedby="selected-items-id__1"
+            aria-controls=""
+            aria-describedby="selected-items-id__0"
             aria-expanded={false}
-            aria-haspopup="true"
+            aria-haspopup="listbox"
             autoCapitalize="off"
             autoComplete="off"
-            className="ms-BasePicker-input pickerInput_e7c83bc9"
+            className="ms-BasePicker-input input-55"
             data-lpignore={true}
+            id="combobox-id__0"
             onBlur={[Function]}
             onChange={[Function]}
             onClick={[Function]}
             onCompositionEnd={[Function]}
             onCompositionStart={[Function]}
+            onCompositionUpdate={[Function]}
             onFocus={[Function]}
             onInput={[Function]}
             onKeyDown={[Function]}
             role="combobox"
+            spellCheck={false}
+            style={
+              Object {
+                "fontFamily": "inherit",
+              }
+            }
             value=""
           />
         </div>

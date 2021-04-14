@@ -3,16 +3,17 @@ import { FieldProps } from 'formik'
 import * as React from 'react'
 import { createFakeEvent, getErrorMessage, invokeAll, Omit } from './utils'
 
-export function mapFieldToComboBox<T = any>({
+export function mapFieldToComboBox<V extends string | number | string[] | number[] | null, FormValues = any>({
   form,
   field,
-}: FieldProps<T>): Pick<
+  meta
+}: FieldProps<V, FormValues>): Pick<
   IComboBoxProps,
   'selectedKey'  | 'onDismiss' | 'onChange' | 'errorMessage'
 > {
 
   const shared = {
-    errorMessage: getErrorMessage({ field, form }),
+    errorMessage: getErrorMessage({ field, form, meta }),
     onDismiss: () => field.onBlur(createFakeEvent(field)),
   }
 
@@ -25,16 +26,18 @@ export function mapFieldToComboBox<T = any>({
     }
 }
 
-export type FormikComboBoxProps<T> = Omit<IComboBoxProps, 'selectedKey'> &
-  FieldProps<T>
-export function FormikComboBox<T = any>({
+export type FormikComboBoxProps<V, FormValues> = Omit<IComboBoxProps, 'selectedKey'> &
+  FieldProps<V, FormValues>
+export function FormikComboBox<V extends string | number | string[] | number[] | null, FormValues = any>({
   field,
   form,
+  meta,
   ...props
-}: FormikComboBoxProps<T>) {
+}: FormikComboBoxProps<V, FormValues>) {
   const { errorMessage, onDismiss, ...fieldProps } = mapFieldToComboBox({
     field,
     form,
+    meta
   })
 
   return (

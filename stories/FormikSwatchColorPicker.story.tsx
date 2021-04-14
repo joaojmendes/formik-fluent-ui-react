@@ -1,7 +1,7 @@
 // tslint:disable:jsx-no-lambda
 
 import { Field, FieldProps, Formik } from 'formik'
-import { Label } from 'office-ui-fabric-react'
+import { Label } from '@fluentui/react'
 import * as React from 'react'
 import { FormikSwatchColorPicker } from '../src/FormikSwatchColorPicker'
 import { StoryForm } from './StoryForm'

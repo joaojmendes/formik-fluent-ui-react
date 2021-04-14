@@ -2,7 +2,7 @@ import { FieldProps, getIn } from 'formik'
 
 export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>
 
-export function getErrorMessage<T = any>({ field, form }: FieldProps<T>) {
+export function getErrorMessage<V = any>({ field, form }: FieldProps<V>) {
   const error = getIn(form.errors, field.name)
   const touched = getIn(form.touched, field.name)
 

@@ -3,10 +3,10 @@ import { FieldProps } from 'formik'
 import * as React from 'react'
 import { createFakeEvent, Omit } from './utils'
 
-export function mapFieldToToggle<T = any>({
+export function mapFieldToToggle<V extends boolean, FormValues = any>({
   form,
   field,
-}: FieldProps<T>): Pick<IToggleProps, 'checked' | 'onChange'> {
+}: FieldProps<V, FormValues>): Pick<IToggleProps, 'checked' | 'onChange'> {
   return {
     onChange: (_, checked) => {
       form.setFieldValue(field.name, checked)
@@ -16,16 +16,17 @@ export function mapFieldToToggle<T = any>({
   }
 }
 
-export type FormikToggleProps<T = any> = Omit<
+export type FormikToggleProps<V = any, FormValues = any> = Omit<
   IToggleProps,
   'checked' | 'onChange' | 'onBlur'
 > &
-  FieldProps<T>
+  FieldProps<V, FormValues>
 
-export function FormikToggle<T = any>({
+export function FormikToggle<V extends boolean, FormValues = any>({
   field,
   form,
+  meta,
   ...props
-}: FormikToggleProps<T>) {
-  return <Toggle {...props} {...mapFieldToToggle({ field, form })} />
+}: FormikToggleProps<V, FormValues>) {
+  return <Toggle {...props} {...mapFieldToToggle({ field, form, meta })} />
 }

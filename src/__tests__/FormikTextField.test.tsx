@@ -1,5 +1,5 @@
 import { Field, FieldProps, Form, Formik } from 'formik'
-import { TextField } from 'office-ui-fabric-react'
+import { TextField } from '@fluentui/react'
 import * as React from 'react'
 import renderer from 'react-test-renderer'
 import {
@@ -16,7 +16,7 @@ class Values {
 function createFieldProps(
   value: string = 'foo@bar.com',
   errorMessage?: string | undefined
-): FieldProps<Values> {
+): FieldProps<string> {
   return {
     field: {
       value,
@@ -34,6 +34,7 @@ function createFieldProps(
         email: !!errorMessage,
       },
     },
+    meta: {}
   } as any
 }
 
@@ -62,8 +63,8 @@ test('<FormikTextField /> renders a Fabric <TextField />', () => {
 })
 
 test('mapFieldToTextField() maps FieldProps to ITextFieldProps', () => {
-  const { field, form } = createFieldProps()
-  const props = mapFieldToTextField({ form, field })
+  const { field, form, meta } = createFieldProps()
+  const props = mapFieldToTextField({ form, field, meta })
 
   expect(props.value).toBe(field.value)
 
@@ -79,7 +80,7 @@ test('mapFieldToTextField() maps FieldProps to ITextFieldProps', () => {
 
 test('mapFieldToTextField() additionally maps error message only when touched', () => {
   const errorMessage = 'not a valid email'
-  const { field, form } = createFieldProps(new Values().email, errorMessage)
+  const { field, form, meta } = createFieldProps(new Values().email, errorMessage)
 
   const props = mapFieldToTextField({
     form: {
@@ -87,6 +88,7 @@ test('mapFieldToTextField() additionally maps error message only when touched', 
       touched: { [field.name]: false },
     },
     field,
+    meta
   })
 
   expect(props.errorMessage).not.toBe(errorMessage)
@@ -94,6 +96,7 @@ test('mapFieldToTextField() additionally maps error message only when touched', 
   const propsTouched = mapFieldToTextField({
     form,
     field,
+    meta
   })
 
   expect(propsTouched.errorMessage).toBe(errorMessage)
@@ -101,10 +104,10 @@ test('mapFieldToTextField() additionally maps error message only when touched', 
 
 test('allow errorMessage prop overwrite', () => {
   const errorMessage = 'not a valid email'
-  const { field, form } = createFieldProps(new Values().email, errorMessage)
+  const { field, form, meta } = createFieldProps(new Values().email, errorMessage)
 
   const formikTextField = renderer.create(
-    <FormikTextField {...{ field, form }} errorMessage={'overwrite'} />
+    <FormikTextField {...{ field, form, meta }} errorMessage={'overwrite'} />
   )
   const instance = formikTextField.root
 

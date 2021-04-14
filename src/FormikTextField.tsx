@@ -7,45 +7,48 @@ import { FieldProps } from 'formik'
 import * as React from 'react'
 import { getErrorMessage, Omit } from './utils'
 
-export function mapFieldToTextField<T = any>({
+export function mapFieldToTextField<V extends string = string, FormValues = any>({
   form,
   field,
-}: FieldProps<T>): Pick<
+  meta,
+}: FieldProps<V, FormValues>): Pick<
   ITextFieldProps,
   'value' | 'name' | 'onChange' | 'onBlur' | 'errorMessage' | 'form'
 > {
   return {
     ...field,
-    errorMessage: getErrorMessage({ form, field }),
+    errorMessage: getErrorMessage({ form, field, meta }),
   }
 }
 
-export function mapFieldToMaskedTextField<T = any>({
+export function mapFieldToMaskedTextField<V extends string, FormValues = any>({
   form,
   field,
-}: FieldProps<T>): Pick<
+  meta,
+}: FieldProps<V, FormValues>): Pick<
   ITextFieldProps,
   'value' | 'name' | 'onChange' | 'onBlur' | 'errorMessage' | 'form'
 > {
   return {
-    ...mapFieldToTextField({ form, field }),
+    ...mapFieldToTextField({ form, field, meta }),
     // ev hsa wrong balue for MaskedTextField
     onChange: (_, value) => form.setFieldValue(field.name, value),
   }
 }
 
-export type FormikTextFieldProps<T = any> = Omit<
+export type FormikTextFieldProps<V extends string, FormValues = any> = Omit<
   ITextFieldProps,
   'value' | 'name' | 'onChange' | 'onBlur' | 'form'
 > &
-  FieldProps<T>
+  FieldProps<V, FormValues>
 
-export function FormikTextField<T = any>({
+export function FormikTextField<V extends string, FormValues = any>({
   field,
   form,
+  meta,
   ...props
-}: FormikTextFieldProps<T>) {
-  const { errorMessage, ...fieldProps } = mapFieldToTextField({ field, form })
+}: FormikTextFieldProps<V, FormValues>) {
+  const { errorMessage, ...fieldProps } = mapFieldToTextField({ field, form, meta })
 
   return (
     <TextField
@@ -56,14 +59,16 @@ export function FormikTextField<T = any>({
   )
 }
 
-export function FormikMaskedTextField<T = any>({
+export function FormikMaskedTextField<V extends string, FormValues = any>({
   field,
   form,
+  meta,
   ...props
-}: FormikTextFieldProps<T>) {
+}: FormikTextFieldProps<V, FormValues>) {
   const { errorMessage, ...fieldProps } = mapFieldToMaskedTextField({
     field,
     form,
+    meta,
   })
 
   return (

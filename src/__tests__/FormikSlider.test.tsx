@@ -1,5 +1,5 @@
 import { Field, FieldProps, Form, Formik } from 'formik'
-import { Slider } from 'office-ui-fabric-react'
+import { Slider } from '@fluentui/react'
 import * as React from 'react'
 import renderer from 'react-test-renderer'
 import { FormikSlider, mapFieldToSlider } from '../FormikSlider'
@@ -9,7 +9,7 @@ class Values {
   public rating: number = 3
 }
 
-function createFieldProps(value: number = 3): FieldProps<{ test: Date }> {
+function createFieldProps(value: number = 3): FieldProps<number> {
   return {
     field: {
       value,
@@ -18,6 +18,7 @@ function createFieldProps(value: number = 3): FieldProps<{ test: Date }> {
       name: 'rating',
     },
     form: { setFieldValue: jest.fn(), handleBlur: jest.fn(() => jest.fn()) },
+    meta: {}
   } as any
 }
 
@@ -46,8 +47,8 @@ test('<FormikSlider /> renders a Fabric <Slider />', () => {
 })
 
 test('mapFieldToSlider() maps FieldProps to ISliderProps', () => {
-  const { field, form } = createFieldProps()
-  const props = mapFieldToSlider({ form, field })
+  const { field, form, meta } = createFieldProps()
+  const props = mapFieldToSlider({ form, field, meta })
 
   expect(props.value).toBe(field.value)
 

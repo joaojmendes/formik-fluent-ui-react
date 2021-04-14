@@ -7,7 +7,7 @@ import {
   ListPeoplePicker,
   NormalPeoplePicker,
   setIconOptions,
-} from 'office-ui-fabric-react'
+} from '@fluentui/react'
 import * as React from 'react'
 import renderer from 'react-test-renderer'
 import {
@@ -37,7 +37,7 @@ class Values {
 
 function createFieldProps(
   value: IPersonaProps[] = [personas[0]]
-): FieldProps<Values> {
+): FieldProps<IPersonaProps[]> {
   return {
     field: {
       value,
@@ -98,8 +98,8 @@ function createFieldProps(
 })
 
 test('mapFieldToPeoplePicker() maps FieldProps to IPeoplePickerProps', () => {
-  const { field, form } = createFieldProps()
-  const props = mapFieldToPeoplePicker({ form, field })
+  const { field, form, meta } = createFieldProps()
+  const props = mapFieldToPeoplePicker({ form, field, meta })
 
   expect(props.selectedItems).toBe(field.value)
 

@@ -1,7 +1,7 @@
 // tslint:disable:jsx-no-lambda
 
 import { Field, FieldProps, Form, Formik } from 'formik'
-import { IColorCellProps, SwatchColorPicker } from 'office-ui-fabric-react'
+import { IColorCellProps, SwatchColorPicker } from '@fluentui/react'
 import * as React from 'react'
 import renderer from 'react-test-renderer'
 import {
@@ -21,7 +21,7 @@ class Values {
 }
 function createFieldProps(
   value: IColorCellProps | string = colors[0]
-): FieldProps<Values> {
+): FieldProps<IColorCellProps | string> {
   return {
     field: {
       value,
@@ -81,10 +81,10 @@ test('<FormikSwatchColorPicker /> renders a Fabric <SwatchColorPicker />', () =>
 })
 
 test('mapFieldToSwatchColorPicker() maps FieldProps to ISwatchColorPickerProps', () => {
-  const { field, form } = createFieldProps()
-  const props = mapFieldToSwatchColorPicker({ form, field })
+  const { field, form, meta } = createFieldProps()
+  const props = mapFieldToSwatchColorPicker({ form, field, meta })
 
-  expect(props.selectedId).toBe(field.value.id)
+  expect(props.selectedId).toBe((field.value as { id: string, label: string, color: string }).id)
 
   props.onColorChanged!(colors[1].id, colors[1].color)
 
@@ -99,8 +99,8 @@ test('mapFieldToSwatchColorPicker() maps FieldProps to ISwatchColorPickerProps',
 })
 
 test('mapFieldToSwatchColorPicker() also supports string values', () => {
-  const { field, form } = createFieldProps(colors[0].color)
-  const props = mapFieldToSwatchColorPicker({ form, field })
+  const { field, form, meta } = createFieldProps(colors[0].color)
+  const props = mapFieldToSwatchColorPicker({ form, field, meta })
 
   expect(props.selectedId).toBe(field.value)
 

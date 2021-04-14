@@ -1,6 +1,7 @@
 import {
   CompactPeoplePicker,
   IPeoplePickerProps,
+  IPersonaProps,
   ListPeoplePicker,
   NormalPeoplePicker,
 } from '@fluentui/react';
@@ -8,10 +9,10 @@ import { FieldProps } from 'formik'
 import * as React from 'react'
 import { createFakeEvent, Omit } from './utils'
 
-export function mapFieldToPeoplePicker<T = any>({
+export function mapFieldToPeoplePicker<V extends IPersonaProps[] = IPersonaProps[], FormValues = any>({
   form,
   field,
-}: FieldProps<T>): Pick<
+}: FieldProps<V, FormValues>): Pick<
   IPeoplePickerProps,
   'selectedItems' | 'onChange' | 'onBlur'
 > {
@@ -21,55 +22,61 @@ export function mapFieldToPeoplePicker<T = any>({
     onChange: items => form.setFieldValue(field.name, items),
   }
 }
-export type FormikPeoplePickerProps<T = any> = Omit<
+export type FormikPeoplePickerProps<V extends IPersonaProps[] = IPersonaProps[], FormValues = any> = Omit<
   IPeoplePickerProps,
   'selectedItems' | 'onBlur' | 'onChange'
 > &
-  FieldProps<T>
+  FieldProps<V, FormValues>
 
-export function FormikNormalPeoplePicker<T = any>({
+export function FormikNormalPeoplePicker<V extends IPersonaProps[] = IPersonaProps[], FormValues = any>({
   field,
   form,
+  meta,
   ...props
-}: FormikPeoplePickerProps<T>) {
+}: FormikPeoplePickerProps<V, FormValues>) {
   return (
     <NormalPeoplePicker
       {...props}
       {...mapFieldToPeoplePicker({
         field,
         form,
+        meta
       })}
     />
   )
 }
 
-export function FormikCompactPeoplePicker<T = any>({
+export function FormikCompactPeoplePicker<V extends IPersonaProps[] = IPersonaProps[], FormValues = any>({
   field,
   form,
+  meta,
   ...props
-}: FormikPeoplePickerProps<T>) {
+}: FormikPeoplePickerProps<V, FormValues>) {
   return (
     <CompactPeoplePicker
       {...props}
       {...mapFieldToPeoplePicker({
         field,
         form,
+        meta
       })}
     />
   )
 }
 
-export function FormikListPeoplePicker<T = any>({
+export function FormikListPeoplePicker<V extends IPersonaProps[] = IPersonaProps[], FormValues = any>({
   field,
   form,
+  meta,
   ...props
-}: FormikPeoplePickerProps<T>) {
+}: FormikPeoplePickerProps<V, FormValues>) {
   return (
     <ListPeoplePicker
       {...props}
       {...mapFieldToPeoplePicker({
         field,
         form,
+        meta
       })}
     />
   )
